@@ -4,7 +4,7 @@ import { verifyToken } from "@/lib/auth";
 
 const publicPaths = ["/login", "/register", "/api/auth"];
 
-export async function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isPublic = publicPaths.some((p) => path.startsWith(p));
 
@@ -24,6 +24,3 @@ export async function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-export const config = {
-  matcher: ["/((?!_next|_vercel|favicon.ico|public).*)"],
-};

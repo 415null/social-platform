@@ -24,6 +24,7 @@ export function MainNav() {
             key={item.href}
             href={item.href}
             title={item.label}
+            prefetch
             className={`inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors ${
               isActive
                 ? "bg-primary text-primary-foreground"
