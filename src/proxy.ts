@@ -20,3 +20,7 @@ export default async function proxy(request: NextRequest) {
   return NextResponse.next();
 }
 
+export const config = {
+  matcher: ["/((?!_next|_vercel|favicon.ico|public).*)"],
+};
+
