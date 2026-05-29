@@ -14,10 +14,9 @@ import type { UserPayload } from "@/lib/auth";
 export function UserMenu({ user }: { user: UserPayload }) {
   const router = useRouter();
 
-  async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST" });
+  function handleLogout() {
+    fetch("/api/auth/logout", { method: "POST" }).catch(() => {});
     router.push("/login");
-    router.refresh();
   }
 
   const initials = user.username.slice(0, 2).toUpperCase();
